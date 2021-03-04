@@ -3,10 +3,7 @@ package servlet0303.dao;
 import servlet0303.model.Userinfos;
 import servlet0303.utils.DBUtils;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDaoImpl implements UserDao{
     @Override
@@ -77,7 +74,7 @@ public class UserDaoImpl implements UserDao{
             ps = conn.prepareStatement(sql);
             ps.setString(1,userinfos.getPassword());
             ps.setBoolean(2,userinfos.getGender());
-            ps.setString(3, userinfos.getBirthday());
+            ps.setTimestamp(3,new Timestamp(userinfos.getBirthday().getTime()));
             ps.setLong(4,userinfos.getId());
             count = ps.executeUpdate();
             conn.commit();

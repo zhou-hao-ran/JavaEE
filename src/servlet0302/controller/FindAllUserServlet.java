@@ -14,10 +14,11 @@ import java.util.List;
 
 @WebServlet(value = "/findAll")
 public class FindAllUserServlet extends HttpServlet {
+    //修改新增
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
+    //查询删除
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");

@@ -8,7 +8,7 @@ public class Userinfos {
     private String password;
     private String nickname;
     private Boolean gender;
-    private String birthday;
+    private Date birthday;
 
     public Long getId() {
         return id;
@@ -50,11 +50,11 @@ public class Userinfos {
         this.gender = gender;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 }

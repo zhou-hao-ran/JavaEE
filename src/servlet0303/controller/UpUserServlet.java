@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @WebServlet(value = "/upById")
 public class UpUserServlet extends HttpServlet {
@@ -31,10 +33,17 @@ public class UpUserServlet extends HttpServlet {
         userinfos.setId(Long.valueOf(id));
         userinfos.setPassword(password);
         userinfos.setGender(Boolean.valueOf(gender));
-        userinfos.setBirthday(birthday);
+            try {
+                if (birthday != null) {
+                userinfos.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         // 调Service
         UserService userService = new UserService();
         RespBean respBean = userService.upUser(userinfos);
+        //在postman中打印json数据
         writer.println(new ObjectMapper().writeValueAsString(respBean));
     }
 }
