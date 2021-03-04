@@ -5,6 +5,8 @@ import servlet0303.dao.UserDaoImpl;
 import servlet0303.model.RespBean;
 import servlet0303.model.Userinfos;
 
+import java.util.List;
+
 public class UserService {
     UserDao userDao = new UserDaoImpl();
     public RespBean addUser(Userinfos userinfos) {
@@ -32,5 +34,9 @@ public class UserService {
         }else{
             return RespBean.success(200, "修改成功");
         }
+    }
+
+    public List<Userinfos> findUser(String keyword) {
+        return userDao.findUserByNickname(keyword);
     }
 }

@@ -1,5 +1,7 @@
 package servlet0303.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Userinfos {
@@ -8,6 +10,7 @@ public class Userinfos {
     private String password;
     private String nickname;
     private Boolean gender;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date birthday;
 
     public Long getId() {
