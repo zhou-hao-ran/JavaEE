@@ -103,7 +103,7 @@ public class UserDaoImpl implements UserDao {
         try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement("select * from userinfos where nickname like concat('%',?,'%')");
-            ps.setString(1,keyword);
+            ps.setString(1, keyword);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Userinfos userinfos = new Userinfos();
@@ -122,7 +122,7 @@ public class UserDaoImpl implements UserDao {
                 ex.printStackTrace();
             }
             e.printStackTrace();
-        }finally {
+        } finally {
             DBUtils.getInstance().close(rs);
             DBUtils.getInstance().close(ps);
             DBUtils.getInstance().close(conn);

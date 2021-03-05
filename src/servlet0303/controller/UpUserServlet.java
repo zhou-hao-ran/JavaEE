@@ -11,18 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 @WebServlet(value = "/upById")
 public class UpUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 保证接受及响应时不乱码
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json;charset=utf-8");
-        PrintWriter writer = response.getWriter();
         // 获取请求参数
         String id = request.getParameter("id");
         String password = request.getParameter("password");
@@ -33,17 +27,17 @@ public class UpUserServlet extends HttpServlet {
         userinfos.setId(Long.valueOf(id));
         userinfos.setPassword(password);
         userinfos.setGender(Boolean.valueOf(gender));
-            try {
-                if (birthday != null) {
+        try {
+            if (birthday != null) {
                 userinfos.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
             }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         // 调Service
         UserService userService = new UserService();
         RespBean respBean = userService.upUser(userinfos);
         //在postman中打印json数据
-        writer.println(new ObjectMapper().writeValueAsString(respBean));
+        response.getWriter().println(new ObjectMapper().writeValueAsString(respBean));
     }
 }
