@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-@WebServlet(value = "/upById")
+//@WebServlet(value = "/upById")
 public class UpUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取请求参数

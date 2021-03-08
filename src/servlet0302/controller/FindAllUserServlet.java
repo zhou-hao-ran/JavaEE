@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
         import java.io.IOException;
         import java.util.List;
 
-@WebServlet(value = "/findAll")
+//@WebServlet(value = "/findAll")
 public class FindAllUserServlet extends HttpServlet {
     //修改新增
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

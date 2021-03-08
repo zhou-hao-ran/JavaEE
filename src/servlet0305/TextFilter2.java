@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(value = "/test03051")
+//@WebFilter(value = "/test03051")
 public class TextFilter2 implements Filter {
     public void destroy() {
     }
