@@ -2,7 +2,7 @@ package webpractice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import webpractice.bean.RespBean;
-import webpractice.servlet.SysUserService;
+import webpractice.service.SysUserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +27,4 @@ public class SysUserLoginServlet extends HttpServlet {
         // 响应
         response.getWriter().println(new ObjectMapper().writeValueAsString(respBean));
     }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 }

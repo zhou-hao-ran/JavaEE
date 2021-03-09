@@ -1,4 +1,4 @@
-package webpractice.servlet;
+package webpractice.service;
 
 import webpractice.bean.RespBean;
 import webpractice.bean.SysUser;
